@@ -142,9 +142,9 @@ class Signup extends React.Component {
 
         <div>
           <p>Rate your preference on a scale from 1-5</p>
-          <p>Completely interested (1) - Love it (5)</p>
+          <p>Hate it (1) - Love it (5)</p>
 
-          <p>How much do you like tacos?</p>
+          <p>How great is Javascript?</p>
             <select id="dropdown1" value={this.state.question1} onChange={e => this.handleChange('question1', e)}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -153,7 +153,7 @@ class Signup extends React.Component {
               <option value="5">5</option>
             </select>
 
-            <p>How much do you enjoy magic tricks?</p>
+            <p>How much do you like ping pong?</p>
             <select id="dropdown2" value={this.state.question2} onChange={e => this.handleChange('question2', e)}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -162,7 +162,7 @@ class Signup extends React.Component {
               <option value="5">5</option>
             </select>
 
-            <p>How much do you like Quesadillas?</p>
+            <p>How much do you like Whole Foods?</p>
             <select id="dropdown3" value={this.state.question3} onChange={e => this.handleChange('question3', e)}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -171,7 +171,7 @@ class Signup extends React.Component {
               <option value="5">5</option>
             </select>
 
-            <p>How much do you enjoy air guitar?</p>
+            <p>How much do you enjoy Post Malone?</p>
             <select id="dropdown4" value={this.state.question4} onChange={e => this.handleChange('question4', e)}>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -180,7 +180,7 @@ class Signup extends React.Component {
               <option value="5">5</option>
             </select>
 
-            <p>How much do you like enchiladas?</p>
+            <p>How much do you like CSS?</p>
             <select id="dropdown5" value={this.state.question5} onChange={e => this.handleChange('question5', e)}>
               <option value="1">1</option>
               <option value="2">2</option>

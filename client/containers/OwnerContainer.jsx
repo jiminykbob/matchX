@@ -30,9 +30,14 @@ class OwnerContainer extends Component {
     // console.log('this.props is: ', this.props)
     return (
       <div className='ownerContainer'>
-        <h1 style={{textAlign:'center'}}> MATCH EX </h1>
+
+        <div id='header' style={{textAlign:'center'}}>
+          <h1> MATCH EX </h1>
+        </div>
         <UserProfile user={this.props.user}/>
-        <h3>GOOD FRIEND MATCHES</h3>
+        <div id='header2' style={{textAlign:'center'}}>
+          <h3>GOOD FRIEND MATCHES</h3>
+        </div>
         <UsersList usersList={this.props.user.matches}/>
 
         {/* <Link to={{pathname:'/createspace', state:{id:this.props._id}}}>Create a Space!</Link> */}

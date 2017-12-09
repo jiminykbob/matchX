@@ -5011,10 +5011,6 @@ var User = function User(props) {
     _react2.default.createElement(
       _Card.Card,
       { className: 'card' },
-      _react2.default.createElement(_Card.CardHeader, {
-        title: user.username,
-        subtitle: ''
-      }),
       _react2.default.createElement(
         _Card.CardMedia,
         {
@@ -28556,15 +28552,23 @@ var OwnerContainer = function (_Component) {
         'div',
         { className: 'ownerContainer' },
         _react2.default.createElement(
-          'h1',
-          { style: { textAlign: 'center' } },
-          ' MATCH EX '
+          'div',
+          { id: 'header', style: { textAlign: 'center' } },
+          _react2.default.createElement(
+            'h1',
+            null,
+            ' MATCH EX '
+          )
         ),
         _react2.default.createElement(_UserProfile2.default, { user: this.props.user }),
         _react2.default.createElement(
-          'h3',
-          null,
-          'GOOD FRIEND MATCHES'
+          'div',
+          { id: 'header2', style: { textAlign: 'center' } },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'GOOD FRIEND MATCHES'
+          )
         ),
         _react2.default.createElement(_UsersList2.default, { usersList: this.props.user.matches })
       );
@@ -34210,7 +34214,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var UserProfile = function UserProfile(props) {
   var user = props.user;
 
-  console.log(user);
   return _react2.default.createElement(
     'div',
     { className: 'userProfile', style: { textAlign: 'center' } },
@@ -34224,20 +34227,32 @@ var UserProfile = function UserProfile(props) {
       _react2.default.createElement(
         _Card.CardMedia,
         { overlay: _react2.default.createElement(_Card.CardTitle, { title: '', subtitle: '' }) },
-        _react2.default.createElement('img', { src: user.pic, alt: '' })
+        _react2.default.createElement('img', { src: user.pic.length !== 0 ? user.pic : 'http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-md.png', alt: '' })
       ),
       _react2.default.createElement(
         _Card.CardText,
         null,
         user.username,
+        ' ',
+        _react2.default.createElement('br', null),
         user.gender,
+        ' ',
+        _react2.default.createElement('br', null),
         user.genderPreference,
+        ' ',
+        _react2.default.createElement('br', null),
         user.age,
-        user.phone
+        ' ',
+        _react2.default.createElement('br', null),
+        user.phone,
+        ' ',
+        _react2.default.createElement('br', null)
       )
     ),
-    _react2.default.createElement(_FlatButton2.default, { label: 'Logout' }),
-    _react2.default.createElement('br', null)
+    _react2.default.createElement(_FlatButton2.default, {
+      label: 'Logout'
+      // onClick={}
+    })
   );
 };
 
@@ -34515,12 +34530,12 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'Completely interested (1) - Love it (5)'
+            'Hate it (1) - Love it (5)'
           ),
           _react2.default.createElement(
             'p',
             null,
-            'How much do you like tacos?'
+            'How great is Javascript?'
           ),
           _react2.default.createElement(
             'select',
@@ -34556,7 +34571,7 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'How much do you enjoy magic tricks?'
+            'How much do you like ping pong?'
           ),
           _react2.default.createElement(
             'select',
@@ -34592,7 +34607,7 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'How much do you like Quesadillas?'
+            'How much do you like Whole Foods?'
           ),
           _react2.default.createElement(
             'select',
@@ -34628,7 +34643,7 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'How much do you enjoy air guitar?'
+            'How much do you enjoy Post Malone?'
           ),
           _react2.default.createElement(
             'select',
@@ -34664,7 +34679,7 @@ var Signup = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'How much do you like enchiladas?'
+            'How much do you like CSS?'
           ),
           _react2.default.createElement(
             'select',
@@ -36596,6 +36611,9 @@ var types = _interopRequireWildcard(_actionTypes);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+// import { history } from '../helpers/history';
+
+
 function signupReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments[1];
@@ -36604,7 +36622,8 @@ function signupReducer() {
     case types.SIGN_UP:
       fetch('http://localhost:3000/signup', action.payload).then(function (response) {
         response.json().then(function (data) {
-          return console.log(data);
+          console.log(data);
+          // history.push('/login');
         });
       }).catch(function (err) {
         return console.log(err);

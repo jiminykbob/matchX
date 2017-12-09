@@ -7,10 +7,6 @@ const User = (props) => {
   return (
     <div className='user'>
       <Card className='card'>
-        <CardHeader
-          title={user.username}
-          subtitle=''
-        />
         <CardMedia
           overlay={<CardTitle title={user.username} subtitle={user.email} />}
         >
